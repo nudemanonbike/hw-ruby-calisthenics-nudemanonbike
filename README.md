@@ -306,4 +306,24 @@ correct, as would any other ordering.
 * It does matter that within each pair, the order of the elements matches the order in
 which the original sequences were provided. That is, `[:a,4]` is a member of the
 Cartesian product a×b, but `[4,:a]` is not. (Although `[4,:a]` is a member of the
-Cartesian product b×a.]
+Cartesian product b×a.)
+
+Here's some sample code showing how your iterator could be used:
+```
+class CartesianProduct
+  include Enumerable
+  # your code here
+end
+
+c = CartesianProduct.new([:a,:b], [4,5])
+c.each { |elt| puts elt.inspect }
+# [:a, 4]
+# [:a, 5]
+# [:b, 4]
+# [:b, 5]
+
+c = CartesianProduct.new([:a,:b], [])
+c.each { |elt| puts elt.inspect }
+# (nothing printed since Cartesian product
+# of anything with an empty collection is empty)
+```
