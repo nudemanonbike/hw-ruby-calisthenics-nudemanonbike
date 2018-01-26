@@ -1,7 +1,7 @@
 require 'fun_with_strings'
 require 'byebug'
 
-describe 'palindrome detection' do
+describe 'palindrome detection', :pending => true do
   it 'should work for simple strings [10 points]' do
     expect('redivider').to be_palindrome
     expect('abracadabra').not_to be_palindrome
